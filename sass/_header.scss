@@ -1,0 +1,94 @@
+header {
+	width: 100%;
+	border-bottom: solid 1px #d9d9de;
+	display: block;
+	background-color: white;
+	margin-top: 0px;
+
+}
+
+.site-logo {
+	display: inline-block;
+    width: 20%;
+    padding: 15px 40px;
+    margin: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    line-height: 19px;
+    float: left;
+    img {
+    	height: 25px;
+    }
+    @media (max-width: 700px){
+        padding: 15px 20px;
+    }
+    @media (max-width: 500px){
+        display: block;
+        margin: .5em auto; 
+        padding: 1em !important;
+        width: 100%;
+    }
+
+}
+
+.primary-menu {
+    width: 80%;
+	margin: 0px 0px 0px 0px;
+	display: inline-block;
+    @media (max-width: 700px){
+        padding-left: 10px;
+    }
+    @media (max-width: 550px){
+        padding-left: 0px;
+    }
+
+}
+
+.primary-menu li {
+    z-index: 500;
+    position: relative;
+    @media (max-width: 545px) {
+        display: block;
+        text-align: center;
+        background-color: #222;
+        width: 100vw;
+        margin-left: 0px;
+        border-bottom: 1px solid #ccc;
+    }
+}
+
+ .nav-cart {
+    float: right;
+    @media (max-width: 776px) {
+        visibility: visible;
+
+    }
+ }
+
+.primary-menu-link {
+	display: inline-block;
+}
+
+.primary-menu-link a {
+	padding: 19px 15px 20px 15px;
+	color: #828587;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    &:hover {
+    	background: #f7fafa;
+        text-decoration: none;
+    }
+    @media (max-width: 700px){
+        padding: 23px 10px 20px 10px;
+    }
+    @media (max-width: 545px) {
+        color: #d9d9de;
+        padding: 1.25em;
+        &:hover {
+            background-color: transparent; 
+            color: white;
+        }
+    }
+
+}
