@@ -1,121 +1,37 @@
- $(document).ready(function() {
-       $('#contact_form').bootstrapValidator({
-             // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-             feedbackIcons: {
-               valid: 'glyphicon glyphicon-ok',
-               invalid: 'glyphicon glyphicon-remove',
-               validating: 'glyphicon glyphicon-refresh'
-             },
-             fields: {
-               first_name: {
-                 validators: {
-                   stringLength: {
-                     min: 2,
-                   },
-                   notEmpty: {
-                     message: 'Please supply your first name'
-                   }
-                 }
-               },
-               last_name: {
-                 validators: {
-                   stringLength: {
-                     min: 2,
-                   },
-                   notEmpty: {
-                     message: 'Please supply your last name'
-                   }
-                 }
-               },
-               email: {
-                 validators: {
-                   notEmpty: {
-                     message: 'Please supply your email address'
-                   },
-                   emailAddress: {
-                     message: 'Please supply a valid email address'
-                   }
-                 }
-               },
-            phone: {
-                validators: {
-                    notEmpty: {
-                        message: 'Please supply your phone number'
-                    },
-                    phone: {
-                        country: 'US',
-                        message: 'Please supply a vaild phone number with area code'
-                    }
-                }
-            },
-            address: {
-                validators: {
-                     stringLength: {
-                        min: 8,
-                    },
-                    notEmpty: {
-                        message: 'Please supply your street address'
-                    }
-                }
-            },
-            city: {
-                validators: {
-                     stringLength: {
-                        min: 4,
-                    },
-                    notEmpty: {
-                        message: 'Please supply your city'
-                    }
-                }
-            },
-            state: {
-                validators: {
-                    notEmpty: {
-                        message: 'Please select your state'
-                    }
-                }
-            },
-            zip: {
-                validators: {
-                    notEmpty: {
-                        message: 'Please supply your zip code'
-                    },
-                    zipCode: {
-                        country: 'US',
-                        message: 'Please supply a vaild zip code'
-                    }
-                }
-            },
-            comment: {
-                validators: {
-                      stringLength: {
-                        min: 10,
-                        max: 200,
-                        message:'Please enter at least 10 characters and no more than 200'
-                    },
-                    notEmpty: {
-                        message: 'Please supply a description of your project'
-                    }
-                    }
-                }
-            }
-        })
-        .on('success.form.bv', function(e) {
-            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-                $('#contact_form').data('bootstrapValidator').resetForm();
+//Problem: User when clicking on image goes to a dead end
+//Solution: Create an overlay with the large image - Lightbox
 
-            // Prevent form submission
-            e.preventDefault();
+var $overlay = $('<div id="overlay"></div>');
+var $image = $("<img>");
+var $caption = $("<p></p>");
 
-            // Get the form instance
-            var $form = $(e.target);
+// An image to overlay
+$overlay.append($image);
 
-            // Get the BootstrapValidator instance
-            var bv = $form.data('bootstrapValidator');
+// A caption to overlay
+$overlay.append($caption);
 
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function(result) {
-                console.log(result);
-            }, 'json');
-        });
+// Add overlay
+$("body").append($overlay);
+
+//1. Capture the click event on a link to an image
+$("#imageGallery a").click(function(event){
+  event.preventDefault();
+  var imageLocation = $(this).attr("href");
+  // Update overlay with the image linked in the link
+$image.attr("src", imageLocation);
+  // Show the overlay.
+    $overlay.show();
+
+  // Get child's alt attribute and set caption
+  ;
+  $caption.text($(this).children("img").attr("alt"));
+
+
+});
+
+// When overlay is clicked
+$overlay.click(function(){
+  // Hide the overlay
+  $overlay.hide();
 });
