@@ -95,9 +95,10 @@
 }
 
 .price {
-	display: inline;
+	display: inline-block;
+	margin-top: -5px;
 	padding-left: .5em;
-	font-size: 1.75em;
+	font-size: 1.5em;
 	float: right;
     font-weight: 300;
     color: #f14c2e;
@@ -211,7 +212,6 @@
 .description {
 	margin-top: 0em;
 	width: 100%;
-	padding: 0 0 0 1em;
 	margin-right: 0px;
 	display: inline-block;
 	color: #888;
@@ -219,8 +219,6 @@
 
 .artist-name {
 	margin-top: 0em;
-	width: 66%;
-	padding: .5em 0 0 1em;
 	margin-right: 0px;
 	display: inline-block;
 	font-weight: bold;
