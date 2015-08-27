@@ -573,9 +573,10 @@ footer {
   width: 100%; }
 
 #overlay {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
   width: 100%;
-  height: 100%;
+  z-index: 2000;
+  height: 100vw;
   position: absolute;
   top: 0;
   left: 0;
@@ -583,9 +584,11 @@ footer {
   text-align: center; }
 
 #overlay img {
-  margin-top: 10%; }
+  margin-top: 5%;
+  width: 45%; }
 
 #overlay p {
-  color: white; }
+  color: white;
+  margin-top: 2em; }
 
 /*# sourceMappingURL=main.css.map */
